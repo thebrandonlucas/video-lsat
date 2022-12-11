@@ -28,7 +28,20 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 
 ### Run Project
 
-There is a `client` and a `server` repo.
-Run `yarn run dev` on either; the client opens `localhost:5173` and the server on `localhost:8000`.
+First, start the server:
+
+```bash
+cd server
+yarn run dev # runs on localhost:8000 by default
+```
+
+Then, start the client:
+
+```bash
+cd client
+yarn run dev # runs on localhost:5173 by default
+```
 
 Change the `.env.sample` file to `.env` and replace the variables as necessary. You'll need an AWS S3 bucket setup to run the project.
+
+Open a browser at `localhost:5173` and you should be good to go!
