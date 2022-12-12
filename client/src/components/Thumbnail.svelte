@@ -8,11 +8,11 @@
 	// todo: add thumbnails, for now, dog pics from the dog api
 	async function getThumbnail() {
 		// todo: get thumbnail from AWS storage? otherwise, default to lightning image
-		return '/images/lightning.jpg';
+		return '/images/lightning.webp';
 	}
 </script>
 
-<a class="flex flex-col" href={`/${video.video_id}`}>
+<a class="flex flex-col justify-items-start self-start" href={`/${video.video_id}`}>
 	<!-- todo: thumbnail image -->
 	{#await getThumbnail()}
 		<p>Loading Image...</p>

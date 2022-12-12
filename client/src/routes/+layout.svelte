@@ -3,7 +3,7 @@
 	import '../app.css';
 </script>
 
-<main class="flex gap-4">
+<main class="flex gap-4 text-white">
 	<Nav />
 	<slot />
 </main>
