@@ -24,6 +24,6 @@
 <style lang="postcss">
 div {
 	@apply grid justify-items-center gap-8 m-4;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 </style>

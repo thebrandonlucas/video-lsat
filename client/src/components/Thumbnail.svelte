@@ -21,7 +21,7 @@
 	{:catch error}
 		<p>{JSON.stringify(error)}</p>
 	{/await}
-	<VideoInfo {video} />
+	<div><VideoInfo {video} /></div>
 </a>
 
 <style lang="postcss">
@@ -29,9 +29,12 @@
 		@apply transition-all;
 	}
 	a:hover {
-		@apply text-gray-500;
+		@apply text-slate-300;
 	}
 	a:hover > img {
 		@apply scale-105 transition-all;
+	}
+	div {
+		@apply mt-2;
 	}
 </style>
