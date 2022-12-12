@@ -26,7 +26,7 @@
 
 <style lang="postcss">
 	img {
-		@apply max-h-48 overflow-hidden transition-all;
+		@apply transition-all;
 	}
 	a:hover {
 		@apply text-gray-500;

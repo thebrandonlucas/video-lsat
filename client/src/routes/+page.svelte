@@ -23,7 +23,7 @@
 
 <style lang="postcss">
 div {
-	@apply grid w-full justify-items-center gap-8 m-4;
+	@apply grid justify-items-center gap-8 m-4;
 	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 </style>
