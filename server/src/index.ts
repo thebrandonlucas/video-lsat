@@ -4,10 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { createMacaroon } from "./macaroon.js";
 import { createInvoice, getInvoice } from "lightning";
-import multer from "multer";
-import multerS3 from "multer-s3";
-import { getVideoFile, s3Client } from "./aws.js";
-import { v4 as uuidv4 } from "uuid";
+import { s3Uploader, getVideoFile } from "./aws.js";
 import { addVideo, getVideo, getVideos } from "./db/video.js";
 import { getLnd } from "./lnd.js";
 
@@ -18,20 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const port = process.env.PORT;
 
-// multer
-const upload = multer({
-  storage: multerS3({
-    s3: s3Client,
-    bucket: process.env.VIDEO_BUCKET || "bucket",
-    metadata: function (req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
-    },
-    key: function (req, file, cb) {
-      const fileName = file.originalname.toLowerCase().split(" ").join("-");
-      cb(null, uuidv4() + "-" + fileName);
-    },
-  }),
-});
+// todo: figure out thumbnail addition
+const uploadVideo = s3Uploader(process.env.VIDEO_BUCKET || "video-bucket");
 
 app.get("/videos", async (req: Request, res: Response) => {
   try {
@@ -134,7 +119,7 @@ app.post("/checkpayment", async (req: Request, res: Response) => {
   }
 });
 
-app.post("/upload", upload.single("video"), async (req, res) => {
+app.post("/upload", uploadVideo.single("video"), async (req, res) => {
   // todo: file type/size validation
   try {
     const url = `${req.protocol}://${req.get("host")}`;

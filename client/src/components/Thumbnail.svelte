@@ -8,11 +8,11 @@
 	// todo: add thumbnails, for now, dog pics from the dog api
 	async function getThumbnail() {
 		// todo: get thumbnail from AWS storage? otherwise, default to lightning image
-		return '/images/lightning.jpg';
+		return '/images/lightning.webp';
 	}
 </script>
 
-<a class="flex flex-col" href={`/${video.video_id}`}>
+<a class="flex flex-col justify-items-start self-start" href={`/${video.video_id}`}>
 	<!-- todo: thumbnail image -->
 	{#await getThumbnail()}
 		<p>Loading Image...</p>
@@ -21,17 +21,20 @@
 	{:catch error}
 		<p>{JSON.stringify(error)}</p>
 	{/await}
-	<VideoInfo {video} />
+	<div><VideoInfo {video} /></div>
 </a>
 
 <style lang="postcss">
 	img {
-		@apply max-h-48 overflow-hidden transition-all;
+		@apply transition-all;
 	}
 	a:hover {
-		@apply text-gray-500;
+		@apply text-slate-300;
 	}
 	a:hover > img {
 		@apply scale-105 transition-all;
+	}
+	div {
+		@apply mt-2;
 	}
 </style>

@@ -3,7 +3,23 @@
 	import '../app.css';
 </script>
 
-<main class="flex gap-4">
-	<Nav />
-	<slot />
+<main>
+	<aside>
+		<Nav />
+	</aside>
+	<section>
+		<slot />
+	</section>
 </main>
+
+<style lang="postcss">
+	main {
+		@apply flex text-white h-full;
+	}
+	aside {
+		@apply fixed h-full w-44;
+	}
+	section {
+		@apply ml-48;
+	}
+</style>
