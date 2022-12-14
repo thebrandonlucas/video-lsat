@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Video } from 'src/routes/types';
-
 	import VideoInfo from '$features/VideoInfo.svelte';
 
 	export let video: Video;
