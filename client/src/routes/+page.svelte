@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Spinner from '$components/Spinner.svelte';
 	import Thumbnail from '$components/Thumbnail.svelte';
 	import type { PageData } from './$types';
 
@@ -7,7 +8,7 @@
 
 <div>
 	{#await data}
-		<p>Loading...</p>
+	<Spinner />	
 	{:then { videos }}
 		{#if !videos.length}
 			<p>No videos to show!</p>
