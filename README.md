@@ -14,17 +14,18 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 
 - [x] Bolt-11 invoices generated from uploader invoice macaroons
 - [ ] Create demo site
-- [ ] Video download button
-- [ ] Save LSATs to localStorage to remember payments on subsequent visits
+- [x] Save LSATs to localStorage to remember payments on subsequent visits
 - [ ] Download/upload LSATs ability
 - [ ] About page with tutorial
 - [ ] Optional creator/user accounts using [LNURL-Auth](https://lightninglogin.live/learn)
 - [ ] [LNURL-Pay](https://github.com/lnurl/luds/blob/luds/06.md)/[Lightning Address](https://lightningaddress.com/) support
-- [ ] Stream video instead of sending as one request
-- [ ] Pay to stream option (instead of pay per video)
 - [ ] Thumbnail upload option (with default if none uploaded)
 - [ ] Tip/like button
 - [ ] Pay to comment
+
+### Housekeeping
+
+- [ ] Add [husky]() for pre-commit checks (Typescript, Prettier, ESLint)
 
 ### Run Project
 
