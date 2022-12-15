@@ -7,7 +7,7 @@
 	// todo: add thumbnails, for now, dog pics from the dog api
 	async function getThumbnail() {
 		// todo: get thumbnail from AWS storage? otherwise, default to lightning image
-		return '/images/lightning.webp';
+		return '/images/newBolt2.png';
 	}
 </script>
 
