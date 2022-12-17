@@ -13,9 +13,8 @@ dotenv.config();
 
 const config: S3ClientConfig = {
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || "aws-access-key-id",
-    secretAccessKey:
-      process.env.AWS_SECRET_ACCESS_KEY || "aws-secret-access-key",
+    accessKeyId: process.env.KEY_ID || "aws-access-key-id",
+    secretAccessKey: process.env.SECRET_KEY || "aws-secret-access-key",
   },
   region: process.env.REGION,
 };
@@ -32,7 +31,6 @@ export function s3Uploader(bucket: string) {
         cb(null, { fieldName: file.fieldname });
       },
       key: function (req, file, cb) {
-        console.log("type", file);
         const fileName = file.originalname.toLowerCase().split(" ").join("-");
         cb(null, uuidv4() + "-" + fileName);
       },
