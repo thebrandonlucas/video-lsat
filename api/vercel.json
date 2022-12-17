@@ -6,5 +6,5 @@
       "use": "@now/node"
     }
   ],
-  "rewrites": [{ "source": "/dist/(.*)", "destination": "/dist" }]
+  "rewrites": [{ "source": "dist/(.*)", "destination": "dist/index.js" }]
 }
