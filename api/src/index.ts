@@ -29,11 +29,6 @@ app.get("/videos", async (req: Request, res: Response) => {
 });
 
 app.get("/video/:videoId", async (req, res) => {
-  // user tries to access a piece of content, server checks if they have paid for it
-  // generate macaroon for user
-  // 1 - get the payment hash and invoice
-  // 2 - create lsat and send in header
-
   const { videoId } = req.params;
   if (!videoId) {
     res.status(404).send("Video id parameter missing");
@@ -154,3 +149,6 @@ app.post("/upload", uploadVideo.single("video"), async (req, res) => {
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
+// Export API for Vercel build process
+module.exports = app;
