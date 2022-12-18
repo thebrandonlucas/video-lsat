@@ -65,7 +65,7 @@ function getVideoFile(videoId) {
         try {
             // Get the object from the Amazon S3 bucket. It is returned as a ReadableStream.
             const data = yield exports.s3Client.send(new client_s3_1.GetObjectCommand(params));
-            // Convert the ReadableStream to a string.
+            // Convert the ReadableStream to a string. s
             return (_a = data.Body) === null || _a === void 0 ? void 0 : _a.transformToString("base64");
         }
         catch (err) {

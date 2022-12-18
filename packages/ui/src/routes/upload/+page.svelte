@@ -45,6 +45,8 @@
 	<p>Uploading!</p>
 {:else if uploaded}
 	<p>Successfully uploaded!</p>
+{:else if error}
+	<p>Error! {String(error)}</p>
 {:else}
 	<form method="post" enctype="multipart/form-data">
 		<label for="video">Upload Video</label>

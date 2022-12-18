@@ -9,5 +9,5 @@ yarn workspace api run add-build
 
 # UI lint & compile
 yarn workspace ui run check
-yarn workspace ui run lint
 yarn workspace ui run format
+yarn workspace ui run lint
