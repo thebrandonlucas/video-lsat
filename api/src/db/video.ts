@@ -1,7 +1,7 @@
 import query from "./query.js";
 import { getOffset, emptyOrRows } from "./helper.js";
 import config from "./config.js";
-import { DBVideo } from "../types.js";
+import { DBVideo } from "../types/types.js";
 
 export async function getVideos(page = 1) {
   const offset = getOffset(page, config.listPerPage);

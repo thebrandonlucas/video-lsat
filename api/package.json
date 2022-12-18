@@ -39,6 +39,5 @@
     "build": "npx tsc",
     "start": "nodemon dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
-  },
-  "type": "module"
+  }
 }
