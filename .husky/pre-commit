@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# API check, build, and add build to git
+# TODO: Add linting
+yarn workspace api run check
+yarn workspace api run build
+yarn workspace api run add-build
+
+# UI lint & compile
+yarn workspace ui run check
+yarn workspace ui run lint
+yarn workspace ui run format

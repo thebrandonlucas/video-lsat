@@ -1,0 +1,18 @@
+{
+  "name": "video-lsat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:thebrandonlucas/video-lsat.git",
+  "author": "<38222767+thebrandonlucas@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "husky": "^8.0.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
