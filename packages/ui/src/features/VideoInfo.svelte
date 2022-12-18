@@ -5,7 +5,7 @@
 
 	export let video: Video;
 
-	const timeAgo = formatDistance(new Date(), new Date(video.created_at))
+	const timeAgo = formatDistance(new Date(), new Date(video.created_at));
 </script>
 
 <section>

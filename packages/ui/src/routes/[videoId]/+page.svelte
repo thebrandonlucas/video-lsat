@@ -35,7 +35,7 @@
 		}
 		loading = false;
 		const canvas = document.getElementById('canvas');
-		QRCode.toCanvas(canvas, lsat.invoice as string, (error: any) => {
+		QRCode.toCanvas(canvas, lsat.invoice as string, (error: unknown) => {
 			if (error) console.error(error);
 			console.log('Generated QRCode');
 		});

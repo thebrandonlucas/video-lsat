@@ -1,23 +1,23 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import Icon from '@iconify/svelte'
-
+	import { page } from '$app/stores';
+	import Icon from '@iconify/svelte';
 
 	$: currentPath = $page.url.pathname;
 
 	const paths = [
-		{href: '/', name: 'Videos', icon: 'fa-solid:video'},
-		{href: '/upload', name: 'Upload', icon: 'fa-solid:file-upload'},
-		{href: '/about', name: 'About' , icon: 'fa-solid:info-circle'},
-	]
+		{ href: '/', name: 'Videos', icon: 'fa-solid:video' },
+		{ href: '/upload', name: 'Upload', icon: 'fa-solid:file-upload' },
+		{ href: '/about', name: 'About', icon: 'fa-solid:info-circle' }
+	];
 </script>
 
 <nav>
 	{#each paths as path}
-		<a class={path.href === currentPath ? 'active' : ''} href={path.href}><div><Icon icon={path.icon} /><span>{path.name}</span></div></a>
+		<a class={path.href === currentPath ? 'active' : ''} href={path.href}
+			><div><Icon icon={path.icon} /><span>{path.name}</span></div></a
+		>
 	{/each}
 </nav>
-
 
 <style lang="postcss">
 	nav {

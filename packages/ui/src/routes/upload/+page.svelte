@@ -24,7 +24,7 @@
 		formData.append('price', price);
 		formData.append('invoice_macaroon', invoice_macaroon);
 		formData.append('api_host_port', api_host_port);
-		formData.append('thumbnail', thumbnailFiles[0])
+		formData.append('thumbnail', thumbnailFiles[0]);
 		try {
 			const res = await fetch(`${PUBLIC_API_URL}/upload`, {
 				method: 'post',
@@ -54,11 +54,21 @@
 		<label for="thumbnail">Upload Thumbnail (optional)</label>
 		<input type="file" name="thumbnail" accept="image/*" bind:files={thumbnailFiles} />
 		<label for="price">Price (Satoshi)</label>
-		<input type="number" min=1 name="price" placeholder="21" bind:value={price} required />
+		<input type="number" min="1" name="price" placeholder="21" bind:value={price} required />
 		<label for="invoice_macaroon">Invoice Macaroon</label>
-		<input name="invoice_macaroon" placeholder="AgEDbG5kA..." bind:value={invoice_macaroon} required />
+		<input
+			name="invoice_macaroon"
+			placeholder="AgEDbG5kA..."
+			bind:value={invoice_macaroon}
+			required
+		/>
 		<label for="api_host_port">GRPC host and port</label>
-		<input name="api_host_port" placeholder="your-node-url:10009" bind:value={api_host_port} required />
+		<input
+			name="api_host_port"
+			placeholder="your-node-url:10009"
+			bind:value={api_host_port}
+			required
+		/>
 		<Button type="submit" on:click={submit}>Submit</Button>
 	</form>
 {/if}
