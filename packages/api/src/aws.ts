@@ -55,7 +55,7 @@ export async function getVideoFile(videoId: string) {
   try {
     // Get the object from the Amazon S3 bucket. It is returned as a ReadableStream.
     const data = await s3Client.send(new GetObjectCommand(params));
-    // Convert the ReadableStream to a string.
+    // Convert the ReadableStream to a string. s
     return data.Body?.transformToString("base64");
   } catch (err) {
     throw err;
