@@ -1,6 +1,5 @@
-import { Identifier } from "lsat-js";
-
-import * as Macaroon from "macaroon";
+const { Identifier } = require("lsat-js");
+const Macaroon = require("macaroon");
 
 export function createMacaroon(
   signingKey: string,

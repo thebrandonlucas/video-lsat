@@ -1,4 +1,4 @@
-import { Caveat, getRawMacaroon, Lsat } from "lsat-js";
+const { Caveat, getRawMacaroon, Lsat } = require("lsat-js");
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
