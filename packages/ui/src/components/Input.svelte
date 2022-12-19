@@ -4,12 +4,12 @@
 	export let placeholder = '';
 	export let value = '';
 	export let name = '';
-	export let min = '0'
+	export let min = '0';
 	export let max = '1';
 	export let files: FileList | undefined = undefined;
 
 	function typeAction(node: HTMLInputElement) {
-		node.type = type
+		node.type = type;
 	}
 </script>
 

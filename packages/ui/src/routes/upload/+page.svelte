@@ -4,7 +4,7 @@
 	import { PUBLIC_API_URL } from '$env/static/public';
 
 	let videoFiles: FileList;
-	let thumbnailFiles: FileList;
+	// let thumbnailFiles: FileList;
 	let price: string;
 	let invoice_macaroon: string;
 	let api_host_port: string;
@@ -43,11 +43,10 @@
 		loading = false;
 	}
 
-
 	function handleFileChange(e: Event) {
-		const { files } = e.target as HTMLInputElement
+		const { files } = e.target as HTMLInputElement;
 		if (files) {
-			videoFiles = files
+			videoFiles = files;
 		}
 	}
 </script>
@@ -61,7 +60,14 @@
 {:else}
 	<form method="post" enctype="multipart/form-data">
 		<label for="video">Upload Video</label>
-		<Input type="file" name="video" accept="video/*" bind:files={videoFiles} on:change={handleFileChange} required />
+		<Input
+			type="file"
+			name="video"
+			accept="video/*"
+			bind:files={videoFiles}
+			on:change={handleFileChange}
+			required
+		/>
 		<!-- <label for="thumbnail">Upload Thumbnail (optional)</label>
 		<Input type="file" name="thumbnail" accept="image/*" bind:files={thumbnailFiles} /> -->
 		<label for="price">Price (Satoshi)</label>
