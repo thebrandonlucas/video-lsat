@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$components/Button.svelte';
+	import Input from '$components/Input.svelte';
 	import { PUBLIC_API_URL } from '$env/static/public';
 
 	let videoFiles: FileList;
@@ -16,6 +17,7 @@
 		loading = true;
 		if (!videoFiles) {
 			alert('You must select a video!');
+			loading = false;
 			return;
 		}
 		e.preventDefault();
@@ -24,7 +26,8 @@
 		formData.append('price', price);
 		formData.append('invoice_macaroon', invoice_macaroon);
 		formData.append('api_host_port', api_host_port);
-		formData.append('thumbnail', thumbnailFiles[0]);
+		// TODO: thumbnails
+		// formData.append('thumbnail', thumbnailFiles[0]);
 		try {
 			const res = await fetch(`${PUBLIC_API_URL}/upload`, {
 				method: 'post',
@@ -39,6 +42,14 @@
 		}
 		loading = false;
 	}
+
+
+	function handleFileChange(e: Event) {
+		const { files } = e.target as HTMLInputElement
+		if (files) {
+			videoFiles = files
+		}
+	}
 </script>
 
 {#if loading}
@@ -50,20 +61,20 @@
 {:else}
 	<form method="post" enctype="multipart/form-data">
 		<label for="video">Upload Video</label>
-		<input type="file" name="video" accept="video/*" bind:files={videoFiles} required />
-		<label for="thumbnail">Upload Thumbnail (optional)</label>
-		<input type="file" name="thumbnail" accept="image/*" bind:files={thumbnailFiles} />
+		<Input type="file" name="video" accept="video/*" bind:files={videoFiles} on:change={handleFileChange} required />
+		<!-- <label for="thumbnail">Upload Thumbnail (optional)</label>
+		<Input type="file" name="thumbnail" accept="image/*" bind:files={thumbnailFiles} /> -->
 		<label for="price">Price (Satoshi)</label>
-		<input type="number" min="1" name="price" placeholder="21" bind:value={price} required />
+		<Input type="number" min="1" name="price" placeholder="21" bind:value={price} required />
 		<label for="invoice_macaroon">Invoice Macaroon</label>
-		<input
+		<Input
 			name="invoice_macaroon"
 			placeholder="AgEDbG5kA..."
 			bind:value={invoice_macaroon}
 			required
 		/>
 		<label for="api_host_port">GRPC host and port</label>
-		<input
+		<Input
 			name="api_host_port"
 			placeholder="your-node-url:10009"
 			bind:value={api_host_port}

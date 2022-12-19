@@ -25,6 +25,9 @@
 <style lang="postcss">
 	div {
 		@apply grid justify-items-center gap-8 m-4;
+		/* FIXME: consistent size for different number of items in row, 
+			currently, thumbnail item stretches to fill
+		*/
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	}
 </style>
