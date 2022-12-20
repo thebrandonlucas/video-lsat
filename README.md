@@ -22,6 +22,7 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 - [ ] Thumbnail upload option (with default if none uploaded)
 - [ ] Tip/like button
 - [ ] Pay to comment
+- [ ] Dockerize the project for easy running
 
 ### Housekeeping
 
@@ -29,20 +30,13 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 
 ### Run Project
 
-First, start the server:
+Rename .env.example to .env and set the environment variables in both `packages/api` and `packages/ui`. These must be set first for the project to work. You'll need to create an AWS S3 Bucket with s3:PutObject and s3:GetObject permissions and a Postgres DB
+
+Then, run the migration in `packages/api/src/db/migrations/0_videos.pgsql` to setup the table
+
+Finally, start the servers and you should be good to go!
 
 ```bash
-cd server
-yarn run dev # runs on localhost:8000 by default
+yarn workspace run api # runs on localhost:8000 by default
+yarn workspace run ui # runs on localhost:5173
 ```
-
-Then, start the client:
-
-```bash
-cd client
-yarn run dev # runs on localhost:5173 by default
-```
-
-Change the `.env.sample` file to `.env` and replace the variables as necessary. You'll need an AWS S3 bucket setup to run the project.
-
-Open a browser at `localhost:5173` and you should be good to go!
