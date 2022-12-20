@@ -26,7 +26,7 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 
 ### Housekeeping
 
-- [ ] Add [husky]() for pre-commit checks (Typescript, Prettier, ESLint)
+- [x] Add [husky]() for pre-commit checks (Typescript, Prettier, ESLint)
 
 ### Run Project
 
@@ -37,6 +37,7 @@ Then, run the migration in `packages/api/src/db/migrations/0_videos.pgsql` to se
 Finally, start the servers and you should be good to go!
 
 ```bash
-yarn workspace run api # runs on localhost:8000 by default
-yarn workspace run ui # runs on localhost:5173
+# runs api on localhost:8000 by default
+# runs ui on localhost:5173
+yarn dev
 ```
