@@ -19,7 +19,7 @@ const config_js_1 = __importDefault(require("./config.js"));
 function getVideos(page = 1) {
     return __awaiter(this, void 0, void 0, function* () {
         const offset = (0, helper_js_1.getOffset)(page, config_js_1.default.listPerPage);
-        const rows = yield (0, query_js_1.default)("SELECT video_id, video_name, price_satoshi, created_at FROM videos OFFSET $1 LIMIT $2", [offset, config_js_1.default.listPerPage]);
+        const rows = yield (0, query_js_1.default)("SELECT video_id, video_name, price_satoshi, created_at FROM videos ORDER BY created_at DESC OFFSET $1 LIMIT $2", [offset, config_js_1.default.listPerPage]);
         const data = (0, helper_js_1.emptyOrRows)(rows);
         const meta = { page };
         return {
