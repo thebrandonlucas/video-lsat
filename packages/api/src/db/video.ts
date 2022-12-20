@@ -6,7 +6,7 @@ import { DBVideo } from "../types/types.js";
 export async function getVideos(page = 1) {
   const offset = getOffset(page, config.listPerPage);
   const rows = await query(
-    "SELECT video_id, video_name, price_satoshi, created_at FROM videos OFFSET $1 LIMIT $2",
+    "SELECT video_id, video_name, price_satoshi, created_at FROM videos ORDER BY created_at DESC OFFSET $1 LIMIT $2",
     [offset, config.listPerPage]
   );
   const data: DBVideo[] = emptyOrRows(rows);
