@@ -13,6 +13,9 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "ui": "yarn --cwd packages/ui dev",
+    "api": "yarn --cwd packages/api dev",
+    "dev": "npm-run-all --parallel ui api"
   }
 }
