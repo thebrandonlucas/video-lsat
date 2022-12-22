@@ -23,6 +23,7 @@ Uploaders require a lightning node that can receive payments and a macaroon with
 - [ ] Tip/like button
 - [ ] Pay to comment
 - [ ] Dockerize the project for easy running
+- [ ] Give content creators choice between accepting keysend (value 4 value) or invoices as payment
 
 ### Housekeeping
 
