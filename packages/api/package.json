@@ -23,6 +23,9 @@
   "resolutions": {
     "tiny-secp256k1": "1.1.6"
   },
+  "engines": {
+    "node": "19"
+  },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
