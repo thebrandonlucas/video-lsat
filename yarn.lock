@@ -3434,7 +3434,7 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lsat-js@^2.0.6:
+lsat-js@2.0.6, lsat-js@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/lsat-js/-/lsat-js-2.0.6.tgz#63fb7406406a0a5a0d1e1b31ae152ad899175084"
   integrity sha512-MYskgqq0YsYf7Ikuz5O07T+crYOSvAYqR6Zh1u1zogQ1CTFCldtzDB40AS7ZKknJL5DahRu4uvaKHFu+O0WXqQ==
