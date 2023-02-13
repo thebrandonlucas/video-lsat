@@ -7,9 +7,10 @@
 
 	const timeAgo = formatDistance(new Date(), new Date(video.created_at))
 </script>
-
+ 
 <section>
 	<Text>{video.video_name}</Text>
+	<Text secondary>{video.views_count}</Text> 
 	<Text secondary>{video.price_satoshi} sat</Text>
 	<Text secondary>{timeAgo} ago</Text>
 </section>

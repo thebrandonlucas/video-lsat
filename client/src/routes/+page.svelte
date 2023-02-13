@@ -15,6 +15,7 @@
 		{:else}
 			{#each data.videos as video}
 				<Thumbnail {video} />
+				<!-- insert view count -->
 			{/each}
 		{/if}
 	{:catch error}

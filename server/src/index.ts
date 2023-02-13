@@ -64,6 +64,7 @@ app.get("/video/:videoId", async (req, res) => {
         message: "Successfully retrieved video",
         video_base64: videoBase64,
       });
+      //increment view count
       return;
     } catch (e) {
       console.error(e);
@@ -138,6 +139,7 @@ app.post("/upload", uploadVideo.single("video"), async (req, res) => {
     await addVideo(
       filename,
       originalname,
+      0,
       price,
       invoice_macaroon,
       api_host_port

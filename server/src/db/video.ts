@@ -6,7 +6,7 @@ import { DBVideo } from "../types.js";
 export async function getVideos(page = 1) {
   const offset = getOffset(page, config.listPerPage);
   const rows = await query(
-    "SELECT video_id, video_name, price_satoshi, created_at FROM videos OFFSET $1 LIMIT $2",
+    "SELECT video_id, video_name, views_count, price_satoshi, created_at FROM videos OFFSET $1 LIMIT $2",
     [offset, config.listPerPage]
   );
   const data: DBVideo[] = emptyOrRows(rows);
@@ -32,7 +32,7 @@ export async function videoExists(id: string) {
 
 export async function getVideo(id: string) {
   const result = await query(
-    `SELECT video_id, video_name, price_satoshi, invoice_macaroon, api_host_port, created_at FROM videos WHERE video_id = $1`,
+    `SELECT video_id, video_name, views_count, price_satoshi, invoice_macaroon, api_host_port, created_at FROM videos WHERE video_id = $1`,
     [id]
   );
 
@@ -48,12 +48,13 @@ export async function getVideo(id: string) {
 export async function addVideo(
   videoId: string,
   videoName: string,
+  viewCount: number,
   priceSatoshi: number,
   invoiceMacaroon: string,
   apiHostPort: string
 ) {
   await query(
-    "INSERT INTO videos (video_id, video_name, price_satoshi, invoice_macaroon, api_host_port) VALUES ($1, $2, $3, $4, $5)",
-    [videoId, videoName, priceSatoshi, invoiceMacaroon, apiHostPort]
+    "INSERT INTO videos (video_id, video_name, views_count, price_satoshi, invoice_macaroon, api_host_port) VALUES ($1, $2, 0, $3, $4, $5)",
+    [videoId, videoName, viewCount, priceSatoshi, invoiceMacaroon, apiHostPort]
   );
 }
