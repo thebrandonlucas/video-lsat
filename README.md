@@ -1,8 +1,15 @@
-# Video-Lsat
+# Video Lsat
 
 ## Watch or upload videos for bitcoin!
 
-This project aims to demonstrate the use of micropayments to allow direct creator-to-consumer marketplaces for video content, as an alternative to ad, subscription, and sponsorship models.
+This project aims to demonstrate the use of [Bitcoin Lightning](https://lightning.network/) micropayments to allow direct creator-to-consumer marketplaces for video content, as an alternative to ad, subscription, and sponsorship models. No KYC required.
+
+There are three actors involved:
+- An _uploader_
+- A _viewer_
+- A _host_
+
+All an _uploader_ needs is an invoice [macaroon](https://docs.lightning.engineering/lightning-network-tools/lnd/macaroons) and a video file. They then choose a price to view the video and hit "upload". The video and invoice macaroon are then uploaded to the _host_'s site. When the _viewer_ attempts to watch the video, the _host_ uses the _uploader_'s invoice macaroon to generate an invoice. When they do, an [LSAT](https://docs.lightning.engineering/the-lightning-network/lsat) is saved to their browser as proof of payment so that they don't have to pay for the video on subsequent visits (note that, for now, clearing `localStorage` will mean you have to pay for the video again to get a new LSAT). The _host_ does NOT have access to the _uploader_ or _viewers_ funds at any point, nor is it ever necessary for either party to reveal [personally identifiable information](https://www.investopedia.com/terms/p/personally-identifiable-information-pii.asp). Your funds and your identity are in your control. And, with the rise of [nostr](https://github.com/nostr-protocol/nostr), it may soon be possible to [decentralize the video hosting process](https://github.com/nostr-protocol/nostr#:~:text=Video%20and%20other%20heavy%20content) as well.
 
 ### Architecture
 
